@@ -1,6 +1,7 @@
 'use strict';
+// AddTodoForm.tsx
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button } from 'react-native';
 import { useTodoContext } from './TodoContext';
 
 const AddTodoForm: React.FC = () => {
@@ -18,50 +19,18 @@ const AddTodoForm: React.FC = () => {
 	};
 
 	return (
-		<View style={styles.container}>
-			<View style={styles.row}>
-				<View style={styles.section}>
-					<TextInput
-						placeholder='Enter todo'
-						value={text}
-						onChangeText={setText}
-					/>
-				</View>
-				<View style={styles.separator}></View>
-			</View>
-			<View style={styles.row}>
-				<View style={styles.section}>
-					<Button
-						title='Add Todo'
-						onPress={handleAddTodo}
-					/>
-				</View>
-				<View style={styles.separator}></View>
-			</View>
+		<View>
+			<TextInput
+				placeholder='Enter todo'
+				value={text}
+				onChangeText={setText}
+			/>
+			<Button
+				title='Add Todo'
+				onPress={handleAddTodo}
+			/>
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'column',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	row: {
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
-	section: {
-		flex: 1,
-		paddingHorizontal: 10,
-	},
-	separator: {
-		width: 1,
-		height: '100%',
-		backgroundColor: 'black',
-	},
-});
 
 export default AddTodoForm;
